@@ -24,6 +24,8 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     // vieno kliento sukurimas
     public function create(Request $request)
     {
         $clients = Client::all();
@@ -35,6 +37,8 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // keliu klientu sukurimas
     public function createClients(Request $request)
     {
         $clientsCount = $request->clientsCount;
@@ -57,6 +61,8 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     // klientu sukurimas su JS
     public function createJS(Request $request)
     {
         $clientsCount = $request->clientsCount;
@@ -113,9 +119,9 @@ class ClientController extends Controller
 
             $client = new Client;
 
-        $client->name = $request->clientName[$i];
-        $client->surname = $request->clientSurname[$i];
-        $client->description = $request->clientDescription[$i];
+        $client->name = $request->clientName[$i]['name'];
+        $client->surname = $request->clientSurname[$i]["surname"];
+        $client->description = $request->clientDescription[$i]["description"];
 
         $client->save();
 
